@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>The Hub Admin Panel</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+            <%= stylesheet_link_tag "tailwind" , "inter-font" , "data-turbo-track"=> "reload" %>
+                <%= stylesheet_link_tag "application" , "data-turbo-track"=> "reload" %>
+                    <%= javascript_importmap_tags %>
+</head>
+
+<body class=" bg-white">
+    <main class="flex">
+        <!-- Sidebar -->
+        <nav class="w-64 bg-[#9FA0A0] h-screen sticky top-0">
+            <div class="p-4 flex flex-col items-center">
+                <h1 class="text-md py-2 text-gray-50 font-bold hidden md:block">Admin Site</h1>
+                <ul class="flex flex-col text-gray-50">
+                    <li>
+                        <%= link_to admin_path, class: "block px-4 hover:rounded hover:bg-gray-700" do %>
+                            <%= icon('fa-solid', 'gauge-high', class: 'mr-3' ) %>
+                                <span class="hidden md:inline-block">Dashboard</span>
+                                <% end %>
+                    </li>
+                    <li>
+                        <%= link_to admin_products_path, class: "block px-4 hover:rounded hover:bg-gray-700" do %>
+                            <%= icon('fa-solid','bag-shopping', class: 'mr-3' ) %>
+                                <span class="hidden md:inline-block">Products</span>
+                                <% end %>
+                    </li>
+                    <li>
+                        <%= link_to admin_path, class: "block px-4 hover:rounded hover:bg-gray-700" do %>
+                            <%= icon('fa-solid','bag-shopping', class: 'mr-3' ) %>
+                                <span class="hidden md:inline-block">Orders</span>
+                                <% end %>
+                    </li>
+                    <li>
+                        <%= link_to admin_path, class: "block px-4 hover:rounded hover:bg-gray-700" do %>
+                            <%= icon('fa-solid', 'warehouse' , class: 'mr-3' ) %>
+                                <span class="hidden md:inline-block">Inventory</span>
+                                <% end %>
+                    </li>
+                    <li>
+                        <%= link_to admin_categories_path, class: "block px-4 hover:rounded hover:bg-gray-700" do %>
+                            <%= icon('fa-solid', 'list' , class: 'mr-3' ) %>
+                                <span class="hidden md:inline-block">Categories</span>
+                                <% end %>
+                    </li>
+                    <li>
+                        <%= link_to admin_path, class: "block px-4 hover:rounded hover:bg-gray-700" do %>
+                            <%= icon('fa-solid', 'truck-field' , class: 'mr-3' ) %>
+                                <span class="hidden md:inline-block">Supliers</span>
+                                <% end %>
+                    </li>
+                    <li>
+                        <%= link_to admin_path, class: "block px-4 hover:rounded hover:bg-gray-700" do %>
+                            <%= icon('fa-solid', 'person-walking-luggage' , class: 'mr-3' ) %>
+                                <span class="hidden md:inline-block">Vendors</span>
+                                <% end %>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- Content -->
+        <div class=" w-full p-8">
+            
+            <%= yield %>
+        </div>
+    </main>
+</body>
+
+</html>
